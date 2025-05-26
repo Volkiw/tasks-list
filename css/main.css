@@ -63,16 +63,23 @@ body {
 
 }
 
+.form-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
 .input {
     border-color: #969696; 
      border-style: solid;
      border-width: 0.5px;
      border-radius: 5px;
      padding: 7px;
+     height: 32px;
  }
 
  .button{
-    margin: 7px 0;
     background-color: #db893d;
     height: 32px;
     color: #ffffff;
@@ -82,15 +89,13 @@ body {
 }
 
 .input-title {
-    width: 80%;
+    width: 75%;
 }
 
-.button-title{
-    width: 18.5%;
-}
 
 .input-task {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .button-task{
@@ -102,7 +107,7 @@ body {
     line-height: 16px;
     height:16px;
     display:block;
-    margin: 2px 3px 0 0;
+    margin: 1px 12px 0 0;
     background: none;
     border: none;
 }
