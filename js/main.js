@@ -62,6 +62,7 @@ function initDeleteButtons(){
 
 function borrarLista(){
     localStorage.removeItem("tasks");
+    localStorage.removeItem("title");
 };
 
 // pinta las tareas en la lista
