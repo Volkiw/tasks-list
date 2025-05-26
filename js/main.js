@@ -1,21 +1,37 @@
 'use strict';
 
 // CONSTANTES
+const inputTitle = document.querySelector(".js_input-lista");
+const btnTitle = document.querySelector(".js_button-lista");
+const tituloLista = document.querySelector(".js_titulo-lista");
 const inputTarea = document.querySelector(".js_input-tarea");
 const btnTarea = document.querySelector(".js_button-tarea");
 const listaTareas = document.querySelector(".js_list");
+const btnBorrarLista = document.querySelector(".js_borrar-lista");
 let newId = 1;
 let tasks = [
   //{ name: "Comprar pilas", completed: false, id: 2 },
   ];
-const btnBorrarLista = document.querySelector(".js_borrar-lista");
 
 // verificar si hay local storage:
 if (localStorage.getItem("tasks")!== null) {
   tasks = JSON.parse(localStorage.getItem("tasks"));
 }; 
 
+if (localStorage.getItem("title")!== null) {
+  tituloLista.innerHTML = JSON.parse(localStorage.getItem("title"));
+}; 
+
 // FUNCIONES
+function handleClickTitle(ev){
+  ev.preventDefault();
+  let titulo = inputTitle.value;
+  tituloLista.innerHTML = titulo;
+  inputTitle.value = "";
+  inputTitle.placeholder = "Cambia el título de la lista";
+  localStorage.setItem("title", JSON.stringify(titulo));
+};
+
 
 function showBtnBorrarLista(){
   if (tasks.length !== 0){
@@ -24,7 +40,7 @@ function showBtnBorrarLista(){
     btnBorrarLista.classList.add("hidden");
   }
 // elimino la task señalada definitivamente
-}
+};
 
 function deleteTask(ev){
   let binId = parseInt(ev.currentTarget.id);
@@ -33,8 +49,6 @@ function deleteTask(ev){
   tasks.splice(i, 1);
   // localStorage.removeItem(tasks[i]);
   localStorage.setItem("tasks", JSON.stringify(tasks));
-
-  console.log(tasks);
   paintArrayTasks();
 };
 
@@ -115,6 +129,7 @@ paintArrayTasks();
 
 
 // eventos
+btnTitle.addEventListener("click", handleClickTitle);
 btnTarea.addEventListener("click", handleClickTask);
 listaTareas.addEventListener("click", completeTask);
 btnBorrarLista.addEventListener("click", borrarLista);

@@ -20,14 +20,18 @@
     <main class="main">
         <section class="section-add-task">
             <form>
-                <input class="js_input-tarea input" placeholder="Nueva tarea"/>
-                <button class="js_button-tarea button">Agregar</button>
+                <input class="js_input-lista input input-title" placeholder="Añade un título a la lista"/>
+                <button class="js_button-lista button button-title">añadir</button>
+            </form>
+            <form>
+                <input class="js_input-tarea input input-task" placeholder="Añade una nueva tarea a la lista"/>
+                <button class="js_button-tarea button button-task">añadir</button>
             </form>
         </section>
         <section class="section-list-tasks">
-            <h3 class="titulo-2">Tareas:</h3>
+            <h3 class="js_titulo-lista titulo-lista">Lista de tareas:</h3>
             <ul class="js_list"></ul>
-            <a href="" class="js_borrar-lista borrar-lista hidden">eliminar la lista</a>
+            <a href="" class="js_borrar-lista borrar-lista hidden">borrar lista entera</a>
            
         </section>
     </main>
